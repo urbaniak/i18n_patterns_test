@@ -12,6 +12,10 @@ class IndexTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.wsgi_request.LANGUAGE_CODE, 'de')
 
+        response = self.client.get('/de-test-parking/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.wsgi_request.LANGUAGE_CODE, 'en')
+
         response = self.client.get('/pl/test-parking/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.wsgi_request.LANGUAGE_CODE, 'pl')
